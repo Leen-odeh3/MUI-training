@@ -1,0 +1,8 @@
+@media(max-width:800px) {
+    div {
+        &.item {
+            margin-left: -80px;
+            width: 290px;
+        }
+    }
+}
