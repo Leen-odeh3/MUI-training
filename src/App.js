@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
       <Header/>
       <Routes>
-        <Route index element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/create" element={<Create/>}/>
       </Routes>
       </BrowserRouter>
