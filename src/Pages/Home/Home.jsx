@@ -22,7 +22,7 @@ const Home = () => {
         return (
           <Paper className="item"
             sx={{position: "relative",
-              width: "400px",
+              width: "50%",
               display: "flex",
               justifyContent: "space-between",
               padding: "20px",
