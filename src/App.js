@@ -21,7 +21,9 @@ function App() {
             <CssBaseline />
     <div className="App">
       <BrowserRouter>
-      <Header change={setmode}/>
+
+      <Header change={setmode} />
+
       <Routes>
         <Route path="/home" element={<Home/>}/>
         <Route path="/create" element={<Create/>}/>

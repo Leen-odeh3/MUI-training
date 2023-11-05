@@ -1,12 +1,14 @@
-import React from 'react';
-import { Drawer, Divider, Toolbar, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import React, { useState } from 'react';
+import { Drawer, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import CreateIcon from '@mui/icons-material/Create';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
+import { createTheme } from '@mui/material/styles';
 import Brightness6Icon from '@mui/icons-material/Brightness6';
+import { useTheme } from '@emotion/react';
 
 const drawerWidth = 260;
 
@@ -18,7 +20,16 @@ const menuItems = [
   { text: "Log Out", icon: <ExitToAppIcon />, path: "/logout" },
 ];
 
-const Drawar = ({change}) => {
+const DrawerComponent = ({ change }) => {
+  const [mode, setMode] = useState("light"); // Fixed the useState call
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: mode, // Removed backticks around mode
+    },
+  });
+
+  const theme = useTheme();
   const navigate = useNavigate();
 
   return (
@@ -34,8 +45,8 @@ const Drawar = ({change}) => {
       variant="permanent"
       anchor="left"
     >
-<Brightness6Icon onClick={()=>change('dark')}/>
-     
+      <Brightness6Icon onClick={() => change(theme.palette.mode === 'light' ? 'dark' : 'light')} 
+      sx={{marginTop:"20px",marginLeft:"130px",marginBottom:"20px",cursor:"pointer"}}/>
       <Divider />
       <List>
         {menuItems.map((item, index) => (
@@ -51,4 +62,4 @@ const Drawar = ({change}) => {
   );
 }
 
-export default Drawar;
+export default DrawerComponent;
