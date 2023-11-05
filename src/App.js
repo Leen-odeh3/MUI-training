@@ -17,9 +17,13 @@ function App() {
 
   const darkTheme = createTheme({
     palette: {
-      mode: `${mode}`,
-    },
-  });
+      mode: `${mode}`
+      ,
+      color: {
+        main: mode === 'light' ? "#e0e0e0" : "gray",
+       
+    }
+}});
 
   return (
     <ThemeProvider theme={darkTheme}>

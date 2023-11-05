@@ -5,7 +5,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import CreateIcon from '@mui/icons-material/Create';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import Brightness6Icon from '@mui/icons-material/Brightness6';
 import { useTheme } from '@emotion/react';
@@ -21,6 +21,7 @@ const menuItems = [
 ];
 
 const DrawerComponent = ({ change }) => {
+  const location=useLocation();
   const [mode, setMode] = useState("light");
 
   const darkTheme = createTheme({
@@ -55,7 +56,7 @@ const DrawerComponent = ({ change }) => {
       <Divider />
       <List>
         {menuItems.map((item, index) => (
-          <ListItem key={index}>
+          <ListItem key={index} sx={{backgroundColor: location.pathname === item.path ? theme.palette.color.main :null}}>
             <ListItemButton onClick={() => navigate(item.path)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText>{item.text}</ListItemText>
