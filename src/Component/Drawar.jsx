@@ -36,6 +36,7 @@ const DrawerComponent = ({ change }) => {
   return (
     <Drawer
       sx={{
+        display:{xs:"none", md:"block"},
         width: drawerWidth,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
