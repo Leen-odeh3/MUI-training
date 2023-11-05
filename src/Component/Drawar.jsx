@@ -6,6 +6,7 @@ import CreateIcon from '@mui/icons-material/Create';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
+import Brightness6Icon from '@mui/icons-material/Brightness6';
 
 const drawerWidth = 260;
 
@@ -17,7 +18,7 @@ const menuItems = [
   { text: "Log Out", icon: <ExitToAppIcon />, path: "/logout" },
 ];
 
-const Drawar = () => {
+const Drawar = ({change}) => {
   const navigate = useNavigate();
 
   return (
@@ -33,7 +34,8 @@ const Drawar = () => {
       variant="permanent"
       anchor="left"
     >
-      <Toolbar />
+<Brightness6Icon onClick={()=>change('dark')}/>
+     
       <Divider />
       <List>
         {menuItems.map((item, index) => (

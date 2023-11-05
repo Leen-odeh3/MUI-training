@@ -4,7 +4,7 @@ import './Drawar'
 import Avatar from "@mui/material/Avatar";
 import Drawar from "./Drawar";
 
-const Header = () => {
+const Header = ({change}) => {
   const drawerWidth = 260;
 
   return (
@@ -28,7 +28,7 @@ const Header = () => {
         </Toolbar>
       </AppBar>
 
-   <Drawar/>
+   <Drawar change={change}/>
     </Box>
   );
 };
