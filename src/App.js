@@ -1,10 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Pages/Home/Home.jsx'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Create from './Pages/Create/Create.jsx'
+import CssBaseline from '@mui/material/CssBaseline';
 import Header from "./Component/Header.jsx";
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+  
   return (
+    <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
     <div className="App">
       <BrowserRouter>
       <Header/>
@@ -14,6 +24,7 @@ function App() {
       </Routes>
       </BrowserRouter>
     </div>
+    </ThemeProvider>
   );
 }
 
