@@ -21,11 +21,11 @@ const menuItems = [
 ];
 
 const DrawerComponent = ({ change }) => {
-  const [mode, setMode] = useState("light"); // Fixed the useState call
+  const [mode, setMode] = useState("light");
 
   const darkTheme = createTheme({
     palette: {
-      mode: mode, // Removed backticks around mode
+      mode: mode,
     },
   });
 
@@ -45,8 +45,13 @@ const DrawerComponent = ({ change }) => {
       variant="permanent"
       anchor="left"
     >
-      <Brightness6Icon onClick={() => change(theme.palette.mode === 'light' ? 'dark' : 'light')} 
-      sx={{marginTop:"20px",marginLeft:"130px",marginBottom:"20px",cursor:"pointer"}}/>
+      <Brightness6Icon onClick={() => {
+        localStorage.setItem("mode", theme.palette.mode === 'light' ? 'dark' : 'light');
+        change(theme.palette.mode === 'light' ? 'dark' : 'light');
+      }}
+      sx={{ marginTop: "20px", marginLeft: "130px", marginBottom: "20px", cursor: "pointer" }}
+      />
+
       <Divider />
       <List>
         {menuItems.map((item, index) => (
