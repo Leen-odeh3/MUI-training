@@ -5,9 +5,9 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const Home = () => {
   const Items = [
-    { title: "Home", price: "$100" },
-    { title: "Home", price: "$50" },
-    { title: "Home", price: "$9" },
+    { title: "Water", price: "$100" },
+    { title: "GYM", price: "$50" },
+    { title: "Pen", price: "$9" },
   ];
   return (
     <Box
