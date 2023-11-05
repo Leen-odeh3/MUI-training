@@ -1,0 +1,15 @@
+@media(max-width:800px) {
+    form {
+        &.MuiBox-root {
+            margin-left: 280px;
+        }
+
+        div {
+            &.MuiFormControl-root {
+                width: 80%;
+            }
+
+        }
+
+    }
+}
