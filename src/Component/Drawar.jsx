@@ -20,7 +20,7 @@ const menuItems = [
   { text: "Log Out", icon: <ExitToAppIcon />, path: "/logout" },
 ];
 
-const DrawerComponent = ({ change }) => {
+const DrawerComponent = ({ change ,display ,setdisplay,type,settype}) => {
   const location=useLocation();
   const [mode, setMode] = useState("light");
 
@@ -36,7 +36,7 @@ const DrawerComponent = ({ change }) => {
   return (
     <Drawer
       sx={{
-        display:{xs:"none", md:"block"},
+        display:{xs:`${display}`, md:"block"},
         width: drawerWidth,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
@@ -44,8 +44,10 @@ const DrawerComponent = ({ change }) => {
           boxSizing: "border-box",
         },
       }}
-      variant="permanent"
+      variant= {`${type}`}
       anchor="left"
+      open={true}
+      onClose={()=> {setdisplay('none');  settype("permanent")}}
     >
       <Brightness6Icon onClick={() => {
         localStorage.setItem("mode", theme.palette.mode === 'light' ? 'dark' : 'light');

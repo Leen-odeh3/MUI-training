@@ -24,7 +24,7 @@ const Create = () => {
   return (
     <Box
       sx={{
-        marginLeft: "260px",
+        marginLeft: "200px",
         display: "flex",
         flexDirection: "column",
         paddingTop: "60px",
